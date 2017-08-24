@@ -1,24 +1,19 @@
-import { observable, action, computed,autorun } from "mobx";
-import axios from 'axios';
-// 菜单数据(mock)
-
-
-// 菜单栏 登录
-
-
-// 赛选菜单栏
-
+import { observable, action, computed, autorun } from "mobx";
+import { getData } from "@/servers/server";
 
 class App {
   @observable result;
   constructor() {
-    this.result=null;
+    this.result = null;
   }
 
   async getData() {
-    axios('')
+    getData(763926,`source(__id:{eq:1}){}`)
+    .then(res => {
+      const {data:{data}} = res;
+      console.log(JSON.parse(data));
+    });
   }
-  
 }
 
 const app = new App();

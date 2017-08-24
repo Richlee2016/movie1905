@@ -1,9 +1,23 @@
-const request = require('request-promise');
-const cheerio = require('cheerio');
+const request = require("request-promise");
+const spider = require("./spider/option");
 
-exports.test = function(req,res,next){
-    request("http://www.1905.com/news/20170821/1210807.shtml?fr=homepc_news_kx#p1")
-    .then( data => {
+const myquery = encodeURIComponent(`source(__id:1){
+    data{
+      __id
+    }
+  }`);
+
+const myUrl = spider.query({
+  source_id: 763592,
+  query: myquery
+});
+const setUrl = "http://graphql.shenjianshou.cn/" + myUrl;
+console.log(setUrl);
+
+exports.test = function(req, res, next) {
+    request(setUrl)
+    .then(data => {
         console.log(data);
+        res.json({msg:'ok'})
     })
-}
+};

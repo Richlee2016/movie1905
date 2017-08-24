@@ -54,7 +54,7 @@ app.use(devMiddleware)
 // compilation error display
 app.use(hotMiddleware)
 
-app.get('/api/test',require("../src/servers/api").test);
+// app.use('/api/test',require("../src/servers/api").test);
 
 // serve pure static assets
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
