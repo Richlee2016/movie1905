@@ -1,6 +1,6 @@
 import rxios from './rxios'
 
-const getData = (id,q) => rxios('post', '/api/v0/1905',{id,q});
+const getData = (name) => rxios('get', '/api/v0/1905/page',{name});
 
 export {
     getData, // 首页

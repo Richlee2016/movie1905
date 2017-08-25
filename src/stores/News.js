@@ -1,7 +1,7 @@
 import { observable, action, computed, runInAction } from "mobx";
 import { getData } from "@/servers/server";
 
-class App {
+class News {
   @observable newsIndex;
   constructor() {
     this.newsIndex = {};
@@ -21,5 +21,5 @@ class App {
   }
 }
 
-const app = new App();
-export default app;
+const news = new News();
+export default news;
