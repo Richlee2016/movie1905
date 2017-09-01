@@ -16,6 +16,11 @@ export default class Routers extends React.Component {
           render={props =>
             <LazyRoute {...props} component={import("@/views/News")} />}
         />
+        <Route
+          path="/detail"
+          render={props =>
+            <LazyRoute {...props} component={import("@/views/Detail")} />}
+        />
       </div>
     );
   }

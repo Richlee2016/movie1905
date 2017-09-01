@@ -4,7 +4,6 @@ import axios from "axios";
 //  get、post
 export default (type, url, data, mixin) => {
   const qsData = qs.stringify(data);
-    
   const opt = {
     method: "get",
     url: url
@@ -13,7 +12,7 @@ export default (type, url, data, mixin) => {
   return new Promise((resolve, reject) => {
     switch (type) {
       case "get":
-        if (Object.keys(data).length > 0) {
+        if (data && Object.keys(data).length > 0) {
           Object.assign(opt, {
             url: `${url}?${qsData}`
           });
